@@ -258,7 +258,7 @@ const html = String.raw`<!doctype html>
         <div class="grid">
           <div class="card"><b>Claude Code</b><span>บัญชี Pro, Max หรือ Enterprise และ login เรียบร้อย</span></div>
           <div class="card"><b>Discord</b><span>บัญชีที่มีสิทธิ์ Manage Server หรือให้ admin ช่วย invite</span></div>
-          <div class="card"><b>Discord Plugin</b><span>ติดตั้ง `discord@claude-plugins-official` แล้ว</span></div>
+          <div class="card"><b>Discord Plugin</b><span>ติดตั้ง <code>discord@claude-plugins-official</code> แล้ว</span></div>
         </div>
         <pre>claude plugin install discord@claude-plugins-official
 claude plugin list</pre>
@@ -344,8 +344,8 @@ claude --dangerously-skip-permissions \
         <div class="kicker">Troubleshooting</div>
         <h2>ปัญหาที่เจอบ่อย</h2>
         <div class="grid two">
-          <div class="card"><b class="bad">plugin not installed</b><span>ติดตั้ง plugin ด้วย `claude plugin install discord@claude-plugins-official`</span></div>
-          <div class="card"><b class="bad">discord MCP failed</b><span>ตรวจ `DISCORD_STATE_DIR` ต้อง export และชี้ channel dir ถูก</span></div>
+          <div class="card"><b class="bad">plugin not installed</b><span>ติดตั้ง plugin ด้วย <code>claude plugin install discord@claude-plugins-official</code></span></div>
+          <div class="card"><b class="bad">discord MCP failed</b><span>ตรวจ <code>DISCORD_STATE_DIR</code> ต้อง export และชี้ channel dir ถูก</span></div>
           <div class="card"><b class="bad">Bot offline</b><span>ตรวจ token และเปิด Gateway Intents ครบ</span></div>
           <div class="card"><b class="bad">Bot online แต่ไม่ตอบ</b><span>ตรวจ channel ID ใน access.json และ mention policy</span></div>
         </div>
@@ -383,7 +383,7 @@ claude --dangerously-skip-permissions \
           <li>Privileged Gateway Intents เปิดครบ</li>
           <li>Bot ถูก invite เข้า server แล้ว</li>
           <li>access.json มี channel ID ที่ bot เห็นจริง</li>
-          <li>shell export `DISCORD_STATE_DIR` ก่อน launch Claude</li>
+          <li>shell export <code>DISCORD_STATE_DIR</code> ก่อน launch Claude</li>
         </ul>
       </section>
     </main>
