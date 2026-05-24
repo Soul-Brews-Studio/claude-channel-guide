@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "claude-channel-guide",
   "main": "src/worker.ts",
+  "account_id": "0377ac9ac051abfcc8157852727bba7f",
   "compatibility_date": "2026-05-24",
   "workers_dev": true
 }
