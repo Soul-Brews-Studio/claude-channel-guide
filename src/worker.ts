@@ -16,6 +16,7 @@ const html = String.raw`<!doctype html>
       --accent2: #72a7ff;
       --warn: #ffcc66;
       --bad: #ff7a90;
+      --content-max: min(92vw, 1760px);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     * { box-sizing: border-box; }
@@ -39,9 +40,9 @@ const html = String.raw`<!doctype html>
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 18px clamp(18px, 4vw, 44px);
+      padding: clamp(16px, 1.8vw, 30px) clamp(22px, 4vw, 76px);
       color: var(--muted);
-      font-size: 14px;
+      font-size: clamp(14px, .95vw, 18px);
     }
     .brand {
       display: flex;
@@ -49,10 +50,11 @@ const html = String.raw`<!doctype html>
       gap: 10px;
       font-weight: 700;
       color: var(--ink);
+      white-space: nowrap;
     }
     .mark {
-      width: 28px;
-      height: 28px;
+      width: clamp(28px, 2vw, 40px);
+      height: clamp(28px, 2vw, 40px);
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
@@ -66,7 +68,7 @@ const html = String.raw`<!doctype html>
       border-radius: 99px;
       overflow: hidden;
       flex: 1;
-      max-width: 360px;
+      max-width: min(42vw, 760px);
     }
     .bar {
       height: 100%;
@@ -83,8 +85,9 @@ const html = String.raw`<!doctype html>
       inset: 0;
       display: grid;
       align-content: center;
-      gap: 22px;
-      padding: clamp(26px, 5vw, 64px);
+      justify-items: start;
+      gap: clamp(22px, 2vw, 42px);
+      padding: clamp(36px, 5vw, 96px) clamp(32px, 5.5vw, 120px);
       opacity: 0;
       transform: translateX(48px);
       pointer-events: none;
@@ -100,7 +103,7 @@ const html = String.raw`<!doctype html>
       font-weight: 800;
       letter-spacing: 0;
       text-transform: uppercase;
-      font-size: 13px;
+      font-size: clamp(14px, 1vw, 20px);
     }
     h1, h2 {
       margin: 0;
@@ -108,42 +111,43 @@ const html = String.raw`<!doctype html>
       letter-spacing: 0;
     }
     h1 {
-      font-size: clamp(42px, 8vw, 92px);
-      max-width: 980px;
+      font-size: clamp(46px, 7.2vw, 136px);
+      max-width: var(--content-max);
     }
     h2 {
-      font-size: clamp(32px, 5vw, 62px);
-      max-width: 960px;
+      font-size: clamp(36px, 4.8vw, 90px);
+      max-width: var(--content-max);
     }
     p {
       margin: 0;
-      max-width: 980px;
+      max-width: min(88vw, 1500px);
       color: var(--muted);
-      font-size: clamp(18px, 2.4vw, 28px);
+      font-size: clamp(20px, 1.65vw, 34px);
       line-height: 1.55;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 1100px;
+      gap: clamp(14px, 1.4vw, 26px);
+      width: var(--content-max);
+      max-width: var(--content-max);
     }
     .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .card {
       border: 1px solid var(--line);
       background: var(--panel);
       border-radius: 8px;
-      padding: 18px;
-      min-height: 132px;
+      padding: clamp(18px, 1.5vw, 32px);
+      min-height: clamp(132px, 11vw, 220px);
     }
     .card b {
       display: block;
-      font-size: 19px;
+      font-size: clamp(19px, 1.35vw, 30px);
       margin-bottom: 8px;
     }
     .card span, li {
       color: var(--muted);
-      font-size: 16px;
+      font-size: clamp(17px, 1.05vw, 24px);
       line-height: 1.55;
     }
     code, pre {
@@ -152,43 +156,47 @@ const html = String.raw`<!doctype html>
     pre {
       margin: 0;
       white-space: pre-wrap;
-      max-width: 1050px;
+      width: var(--content-max);
+      max-width: var(--content-max);
       border: 1px solid var(--line);
       background: rgba(0,0,0,.26);
       border-radius: 8px;
-      padding: 18px;
+      padding: clamp(18px, 1.4vw, 30px);
       color: #e9edf7;
-      font-size: clamp(13px, 1.7vw, 17px);
+      font-size: clamp(15px, 1.05vw, 23px);
       line-height: 1.5;
+      overflow-x: auto;
     }
     ul {
       margin: 0;
-      padding-left: 22px;
-      max-width: 1000px;
+      padding-left: clamp(22px, 2vw, 38px);
+      max-width: min(88vw, 1500px);
     }
-    li { margin: 8px 0; }
+    li { margin: clamp(8px, .9vw, 16px) 0; }
     .flow {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       align-items: stretch;
-      gap: 10px;
-      max-width: 1120px;
+      gap: clamp(10px, 1vw, 20px);
+      width: var(--content-max);
+      max-width: var(--content-max);
     }
     .node {
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 16px;
+      padding: clamp(16px, 1.25vw, 28px);
       background: rgba(255,255,255,.08);
-      min-height: 110px;
+      min-height: clamp(124px, 10vw, 210px);
     }
     .node strong {
       display: block;
-      font-size: 18px;
+      font-size: clamp(18px, 1.25vw, 28px);
       margin-bottom: 6px;
     }
     .node small {
       color: var(--muted);
       line-height: 1.45;
+      font-size: clamp(15px, .95vw, 21px);
     }
     .warn { color: var(--warn); }
     .bad { color: var(--bad); }
@@ -198,30 +206,53 @@ const html = String.raw`<!doctype html>
       gap: 10px;
     }
     button {
-      width: 40px;
-      height: 40px;
+      width: clamp(40px, 2.7vw, 56px);
+      height: clamp(40px, 2.7vw, 56px);
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--panel);
       color: var(--ink);
-      font-size: 20px;
+      font-size: clamp(20px, 1.5vw, 30px);
       cursor: pointer;
     }
     button:hover { border-color: rgba(255,255,255,.36); }
     .counter { min-width: 64px; text-align: center; }
+    @media (min-width: 1800px) {
+      :root { --content-max: min(90vw, 1960px); }
+      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .slide { padding-top: clamp(64px, 6vh, 120px); }
+    }
     @media (max-width: 820px) {
       body { overflow: hidden; }
-      header, footer { padding: 14px 16px; }
+      :root { --content-max: 100%; }
+      header, footer {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+      .brand {
+        max-width: 44vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       .grid, .grid.two, .flow { grid-template-columns: 1fr; }
       .slide {
         align-content: start;
         overflow-y: auto;
-        padding: 24px 18px 96px;
+        gap: 18px;
+        padding: 22px 16px 96px;
       }
-      h1 { font-size: 42px; }
-      h2 { font-size: 34px; }
+      h1 { font-size: clamp(34px, 11vw, 46px); }
+      h2 { font-size: clamp(28px, 9vw, 38px); }
       p { font-size: 18px; }
-      .progress { max-width: 160px; }
+      .card { min-height: auto; }
+      .card span, li { font-size: 16px; }
+      pre {
+        width: 100%;
+        font-size: 13px;
+        padding: 14px;
+      }
+      .progress { max-width: 110px; }
+      footer > div:first-child { display: none; }
     }
   </style>
 </head>
